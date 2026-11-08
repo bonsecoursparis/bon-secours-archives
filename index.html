@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Église de Bon-Secours — Archives 1894–1999</title>
+<meta name="description" content="Lettres, affiches, photos et vidéos de l'Église de Bon-Secours, 20 rue Titon, Paris XIe, de la construction en 1894 à Noël 1999.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1f1a18; --bg2:#29231f; --line:#3a322c; --gold:#c9a44c; --gold-soft:#8e7640;
+  --ink:#f2ebdd; --soft:#cfc4b2; --muted:#958a7b;
+  --serif:"Cormorant Garamond", Cambria, Georgia, serif;
+  --sans:"Source Sans 3", Calibri, "Segoe UI", Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+.app{display:grid;grid-template-rows:auto auto 1fr auto;height:100vh;min-height:620px;max-width:1500px;margin:0 auto}
+
+/* header */
+header{display:flex;align-items:baseline;gap:18px;padding:18px 28px 10px;flex-wrap:wrap}
+header h1{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:.2px;line-height:1.1}
+header .sub{color:var(--gold);font-family:var(--serif);font-size:19px;font-style:italic}
+
+/* chapter tabs */
+nav.chapters{display:flex;gap:6px;padding:0 28px 12px;overflow-x:auto;scrollbar-width:thin;border-bottom:1px solid var(--line)}
+nav.chapters button{flex:0 0 auto;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--soft);font-size:14px;white-space:nowrap;transition:all .2s}
+nav.chapters button b{font-family:var(--serif);color:var(--gold);font-size:16px;margin-right:6px}
+nav.chapters button:hover{border-color:var(--gold-soft);color:var(--ink)}
+nav.chapters button[aria-selected=true]{background:var(--gold);border-color:var(--gold);color:#1f1a18}
+nav.chapters button[aria-selected=true] b{color:#1f1a18}
+
+/* stage */
+main{display:grid;grid-template-columns:1fr 360px;gap:28px;padding:20px 28px;min-height:0}
+.media{position:relative;min-height:0;display:flex;align-items:center;justify-content:center;gap:14px}
+.media img{max-height:100%;max-width:100%;object-fit:contain;box-shadow:0 6px 24px rgba(0,0,0,.55);cursor:zoom-in;background:#fff;transition:opacity .35s}
+.media .pages{display:flex;gap:14px;height:100%;width:100%;align-items:center;justify-content:center}
+.media .pages.col{flex-direction:column}
+.media .pages img{min-width:0;min-height:0;flex:0 1 auto}
+.media video{max-width:100%;max-height:100%;background:#000;box-shadow:0 6px 24px rgba(0,0,0,.55)}
+.zoomhint{position:absolute;right:8px;bottom:8px;font-size:12px;color:var(--muted);background:rgba(31,26,24,.8);padding:3px 8px;border-radius:4px;pointer-events:none}
+
+.panel{display:flex;flex-direction:column;min-height:0;overflow:auto;padding-right:4px}
+.panel .chap{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted)}
+.panel .date{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:32px;line-height:1.15;margin-top:10px}
+.panel h2{font-family:var(--serif);font-weight:600;font-size:25px;line-height:1.2;margin-top:8px}
+.panel p{color:var(--soft);margin-top:16px;font-size:16.5px}
+.panel .kind{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:13px;color:var(--muted)}
+.panel .count{margin-top:auto;padding-top:18px;font-size:13px;color:var(--muted)}
+
+.chapintro{margin-top:4px;color:var(--muted);font-size:14px}
+
+/* footer controls */
+footer{border-top:1px solid var(--line);padding:12px 28px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center}
+.ctrl{display:flex;gap:8px;align-items:center}
+.ctrl button{height:40px;min-width:40px;padding:0 14px;border:1px solid var(--line);border-radius:8px;color:var(--ink);font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.ctrl button:hover{border-color:var(--gold-soft)}
+.ctrl button.play[aria-pressed=true]{background:var(--gold);color:#1f1a18;border-color:var(--gold)}
+.ctrl svg{width:16px;height:16px;fill:currentColor}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:4px 2px;scrollbar-width:thin}
+.strip button{flex:0 0 auto;height:56px;width:76px;border-radius:5px;overflow:hidden;border:2px solid transparent;opacity:.55;transition:all .2s;position:relative;background:var(--bg2)}
+.strip button img{width:100%;height:100%;object-fit:cover;display:block}
+.strip button:hover{opacity:.9}
+.strip button[aria-current=true]{border-color:var(--gold);opacity:1}
+.strip button .vid{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35)}
+.strip button .vid svg{width:18px;height:18px;fill:#fff}
+.progress{position:absolute;left:0;bottom:0;height:3px;background:var(--gold);width:0}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(12,10,9,.96);display:none;z-index:50}
+.lb.open{display:block}
+.lb .wrap{position:absolute;inset:0;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:56px 16px 24px}
+.lb img{max-width:min(1400px,100%);height:auto;cursor:zoom-out;background:#fff}
+.lb .bar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:rgba(12,10,9,.85);z-index:2}
+.lb .bar span{color:var(--soft);font-size:14px}
+.lb .bar .btns{display:flex;gap:8px}
+.lb .bar button{height:36px;min-width:36px;padding:0 12px;border:1px solid var(--line);border-radius:8px}
+
+/* mobile */
+@media (max-width: 860px){
+  .app{display:block;height:auto;min-height:0}
+  header{padding:14px 16px 8px}
+  header h1{font-size:25px}
+  header .sub{font-size:17px}
+  nav.chapters{padding:0 16px 10px}
+  main{display:block;padding:14px 16px}
+  .media{height:auto;min-height:220px}
+  .media .pages,.media .pages.col{height:auto;flex-direction:row;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+  .media .pages img{flex:0 0 auto;max-height:58vh;max-width:86%;width:auto;height:auto;scroll-snap-align:center}
+  .media .pages.single{justify-content:center}
+  .media .pages.single img{max-width:100%}
+  .media video{width:100%}
+  .panel{margin-top:18px;overflow:visible}
+  .panel .date{font-size:27px}
+  .panel h2{font-size:22px}
+  .panel .count{margin-top:12px}
+  footer{position:sticky;bottom:0;background:var(--bg);grid-template-columns:1fr;gap:10px;padding:10px 16px 12px}
+  footer .ctrl{justify-content:space-between}
+  .strip button{height:46px;width:62px}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Église de Bon-Secours</h1>
+    <span class="sub">20, rue Titon · de 1894 à 1999</span>
+  </header>
+  <nav class="chapters" role="tablist" aria-label="Chapitres"></nav>
+  <main>
+    <div class="media" id="media"></div>
+    <aside class="panel" aria-live="polite">
+      <div class="chap" id="chap"></div>
+      <div class="chapintro" id="chapintro"></div>
+      <div class="date" id="date"></div>
+      <h2 id="title"></h2>
+      <p id="text"></p>
+      <div class="kind" id="kind"></div>
+      <div class="count" id="count"></div>
+    </aside>
+  </main>
+  <footer>
+    <div class="ctrl">
+      <button id="prev" aria-label="Document précédent"><svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg></button>
+      <button id="play" class="play" aria-pressed="false"><svg viewBox="0 0 24 24" id="playicon"><path d="M8 5v14l11-7z"/></svg><span>Diaporama</span></button>
+      <button id="next" aria-label="Document suivant"><svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg></button>
+    </div>
+    <div class="strip" id="strip" aria-label="Documents du chapitre"></div>
+    <div></div>
+  </footer>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Agrandissement">
+  <div class="bar"><span id="lbcap"></span><div class="btns">
+    <button id="lbprev" aria-label="Page précédente">‹</button>
+    <button id="lbnext" aria-label="Page suivante">›</button>
+    <button id="lbclose" aria-label="Fermer">✕ Fermer</button></div></div>
+  <div class="wrap" id="lbwrap"><img id="lbimg" alt=""></div>
+</div>
+
+<script>
+const DATA = [{"n": "I", "title": "Bâtir une église", "short": "Bâtir une église", "period": "1894 – 1896", "sub": "La paroisse doit quitter la rue de Charonne : projet, souscription et financement de la nouvelle église rue Titon", "items": [{"date": "15 mars 1894", "title": "Lettre du pasteur Dumas aux membres et amis", "text": "La collecte de 1893 a rapporté 2 617,70 F. Le bail de la salle de la rue de Charonne n'est plus renouvelé : la paroisse doit « émigrer ». Un terrain est choisi rue Titon et l'on demande au Gouvernement l'autorisation de bâtir.", "images": [{"src": "media/pf1894_0.jpg", "w": 1061, "h": 1500}, {"src": "media/pf1894_1.jpg", "w": 1061, "h": 1500}]}, {"date": "2 avril 1894", "title": "Convocation des hommes de la paroisse", "text": "Le pasteur F. Dumas réunit les hommes rattachés à Bon-Secours le lundi 9 avril, 97 rue de Charonne, pour une communication « de très grande importance » : « Il s'agit de construire une Église. »", "images": [{"src": "media/convoc_0.jpg", "w": 1061, "h": 1500}]}, {"date": "Mai 1894", "title": "« Appel pour la construction d'une église protestante »", "text": "Brochure de 25 pages approuvée par le Consistoire le 11 mai 1894 : importance de la paroisse du faubourg Saint-Antoine, terrain du 20 rue Titon (plan du quartier), budget de 165 000 F et appel aux dons. Signée F. Dumas et L. Appia.", "images": [{"src": "media/livret_0.jpg", "w": 758, "h": 1075}, {"src": "media/livret_1.jpg", "w": 758, "h": 1075}, {"src": "media/livret_2.jpg", "w": 758, "h": 1075}]}, {"date": "15 mai 1894", "title": "Lettre accompagnant le bulletin de souscription", "text": "Dumas résume la brochure : le devoir de bâtir s'impose. L'église coûtera de 165 000 à 190 000 F ; le Consistoire apporte 100 000 F, le reste est demandé aux membres et amis de Bon-Secours.", "images": [{"src": "media/bull1894_0.jpg", "w": 1061, "h": 1500}]}, {"date": "Juin – octobre 1894", "title": "Lettres de Dumas au journal Le Témoignage", "text": "La souscription progresse : 31 000 F, puis 44 485 F (13 juin), 50 641 F (27 juin) et 58 663 F (31 octobre). Des paroissiens fabriquent des petites boîtes de collecte avec le bois du faubourg.", "images": [{"src": "media/temoignage_0.jpg", "w": 1287, "h": 910}, {"src": "media/temoignage_1.jpg", "w": 1287, "h": 910}]}, {"date": "9 avril 1895", "title": "« J'ai une bonne nouvelle à vous annoncer »", "text": "Le Consistoire porte sa subvention de 100 000 à 147 000 F. La salle de catéchisme pourra être bâtie au 1er étage, au-dessus de la sacristie, et un ami de l'Église offre 4 200 F pour l'achever.", "images": [{"src": "media/l1895_0.jpg", "w": 1061, "h": 1500}, {"src": "media/l1895_1.jpg", "w": 1061, "h": 1500}]}, {"date": "14 juin 1895", "title": "Situation financière de la construction", "text": "Les ressources réunies atteignent 185 169 F (107 000 F votés par le Consistoire et 78 169 F de dons). Il manque encore environ 12 000 F : une collecte est prévue à la pose de la première pierre.", "images": [{"src": "media/sit1895_0.jpg", "w": 513, "h": 791}]}, {"date": "25 février 1896", "title": "Lettre et liste des dons reçus en 1895", "text": "Dons et souscriptions s'élèvent à 83 080 F (858 versements). L'architecte annonce l'entrée dans la nouvelle église à la fin d'avril : « un suprême effort » est demandé. À droite, la liste originale des sommes reçues.", "images": [{"src": "media/don1895_0.jpg", "w": 1060, "h": 1500}, {"src": "media/don1895_1.jpg", "w": 432, "h": 632}]}]}, {"n": "II", "title": "La nouvelle église", "short": "La nouvelle église", "period": "1896 – 1900", "sub": "Ouverture au 20 rue Titon, achèvement du chantier et inauguration de l'orgue", "items": [{"date": "1896", "title": "Affiche : l'église est transférée rue Titon", "text": "Établie depuis 33 ans au 97 rue de Charonne, l'Église protestante de Bon-Secours s'installe au 20 rue Titon, accessible par la rue Chanzy et la rue de Montreuil. Culte principal le dimanche à 1 h.", "images": [{"src": "media/aff_inaug_0.jpg", "w": 1500, "h": 1087}]}, {"date": "Vers 1900", "title": "Affiche des cultes et activités", "text": "Culte le dimanche à 10 h ¼ et à 4 h, culte de semaine le mercredi soir dans la sacristie, écoles du dimanche et du jeudi, instruction des catéchumènes. Pasteurs F. Dumas et L. Appia.", "images": [{"src": "media/aff_culte_0.jpg", "w": 1500, "h": 1088}]}, {"date": "28 octobre 1898", "title": "Achèvement des églises de Bon-Secours et de Saint-Paul", "text": "Appel du Consistoire luthérien de Paris : les deux nouvelles églises (faubourg Saint-Antoine et Montmartre) laissent un déficit d'environ 24 000 F. Il demande 10 000 F aux fidèles, avec le bulletin de souscription joint.", "images": [{"src": "media/ach1898_0.jpg", "w": 1061, "h": 1500}, {"src": "media/ach1898_1.jpg", "w": 1061, "h": 1500}, {"src": "media/ach1898_2.jpg", "w": 1061, "h": 1500}]}, {"date": "10 février 1899", "title": "Lettre de l'architecte Augustin Rey", "text": "Architecte de l'église, Augustin Rey écrit à M. Juncker : M. Ducros, locataire voisin, refuse le compte de mitoyenneté de 370 F. Rey propose une transaction à 400 F et juge la contestation infondée.", "images": [{"src": "media/rey1_0.jpg", "w": 1061, "h": 1500}, {"src": "media/rey1_1.jpg", "w": 1061, "h": 1500}]}, {"date": "Mars 1899", "title": "Règlement de la mitoyenneté avec le voisin", "text": "Fiche d'encaissement du Consistoire (1er mars : 370,30 F), compte de mitoyenneté avec l'immeuble du 45 rue des Boulets, et lettre de Rey du 15 mars envoyant le compte définitif à l'agent du Consistoire.", "images": [{"src": "media/rey2_0.jpg", "w": 1061, "h": 1500}, {"src": "media/rey2_1.jpg", "w": 1061, "h": 1500}, {"src": "media/rey2_2.jpg", "w": 1061, "h": 1500}]}, {"date": "21 janvier 1900", "title": "Discours pour l'inauguration de l'orgue", "text": "Après un concert religieux, Dumas rappelle le rêve de 1893 : « une vraie Église… pourvue même d'un orgue ». Il célèbre la musique au culte et rappelle que l'orgue laisse un déficit de 2 654 F à combler.", "images": [{"src": "media/orgue_0.jpg", "w": 1061, "h": 1500}, {"src": "media/orgue_1.jpg", "w": 1061, "h": 1500}]}, {"date": "Aujourd'hui", "title": "Verrières, rosace et orgue", "text": "Vol au cœur de l'église : la verrière, la grande rosace et la tribune de l'orgue inauguré en 1900, puis la nef vue d'en haut.", "video": "verriere"}]}, {"n": "III", "title": "La séparation des Églises et de l'État", "short": "La séparation de 1906", "period": "1906", "sub": "Après la loi de 1905, l'église est confiée à l'association paroissiale", "items": [{"date": "Juin – novembre 1906", "title": "Dévolution de l'église à l'Association paroissiale", "text": "Le Conseil presbytéral accepte le 24 juin 1906 que le Consistoire transfère l'église du 20 rue Titon et son mobilier à l'Association paroissiale de Bon-Secours. Acte signé le 26 juillet par MM. Weber et Dumas ; récépissé de la Préfecture de police le 16 novembre.", "images": [{"src": "media/devol_0.jpg", "w": 1061, "h": 1500}, {"src": "media/devol_1.jpg", "w": 1061, "h": 1500}, {"src": "media/devol_2.jpg", "w": 1061, "h": 1500}]}]}, {"n": "IV", "title": "La vie de la paroisse", "short": "La vie de la paroisse", "period": "1900 – 1926", "sub": "Conférences, guerre et paix, presbytère", "items": [{"date": "Début du XXe siècle", "title": "Affiches des conférences protestantes", "text": "Cycle de conférences les mercredis soir à 20 h 30 au 20 rue Titon : « Avons-nous besoin d'une religion ? », « Le Christianisme », « Le Catholicisme » (par F. Dumas), « Le Protestantisme ». Entrée libre et gratuite.", "images": [{"src": "media/conf_0.jpg", "w": 1059, "h": 1500}, {"src": "media/conf_1.jpg", "w": 1500, "h": 1061}]}, {"date": "11 – 17 novembre 1918", "title": "La fin de la Première Guerre mondiale", "text": "Registre paroissial : le 11 novembre, à 10 h ½, la paroisse apprend la signature de l'armistice. Le dimanche 17 novembre, un culte d'actions de grâces est célébré (programme à droite) ; les fidèles signent le registre.", "images": [{"src": "media/g1918_0.jpg", "w": 549, "h": 569}, {"src": "media/g1918_1.jpg", "w": 577, "h": 892}]}, {"date": "6 juin 1926", "title": "Inauguration du presbytère", "text": "Le presbytère est inauguré par le pasteur H. Boury, président du Consistoire, en présence des pasteurs F. Dumas et A. Vienney. On prie pour la famille du pasteur Vienney, qui l'occupe depuis le début de l'année. Signatures des paroissiens.", "images": [{"src": "media/presb_0.jpg", "w": 509, "h": 651}]}]}, {"n": "V", "title": "Le pasteur Frédéric Dumas", "short": "Le pasteur Frédéric Dumas", "period": "1928 – 1933", "sub": "Pasteur de Bon-Secours de 1884 à 1920, bâtisseur de l'église", "items": [{"date": "13 mai 1928", "title": "« J'ai atteint le grand âge de 80 ans »", "text": "Récit de Dumas : pour son anniversaire, le Conseil presbytéral lui remet un livre d'or orné d'un dessin de l'église et couvert de signatures d'anciens et de nouveaux paroissiens. Une grande émotion gagne l'assemblée. Daté du 5 juin 1928.", "images": [{"src": "media/dumas80_0.jpg", "w": 1060, "h": 1500}, {"src": "media/dumas80_1.jpg", "w": 1060, "h": 1500}]}, {"date": "13 mai 1928", "title": "Le récit de Dumas en dessin animé", "text": "Le texte du pasteur, mis en images : le culte, la remise du livre de souvenirs par le pasteur Appia et l'émotion de la paroisse.", "video": "dumas80"}, {"date": "1863 – 1938", "title": "Le pasteur Louis Jean Appia", "text": "Pasteur-vicaire aux côtés de Dumas dès 1894, il cosigne l'appel pour la construction et l'affiche des cultes. Il lui remet le livre d'or en 1928 et prononce son éloge funèbre en 1933.", "images": [{"src": "media/appia_0.jpg", "w": 843, "h": 1500}]}, {"date": "6 juillet 1933", "title": "Décès du pasteur Dumas", "text": "Frédéric Dumas meurt à Englesqueville, dans sa 86e année. Ses obsèques sont célébrées le 10 juillet à Bon-Secours ; le pasteur Louis Appia retrace sa vie. Il est inhumé au cimetière du Père-Lachaise.", "images": [{"src": "media/deces_0.jpg", "w": 486, "h": 579}]}]}, {"n": "VI", "title": "Bon-Secours au XXe siècle", "short": "Bon-Secours au XXe siècle", "period": "Années 1930 – 1970", "sub": "Faire connaître l'église, faire vivre la communauté", "items": [{"date": "Milieu du XXe siècle", "title": "Dépliant de présentation de la paroisse", "text": "L'église édifiée en 1896 remplace l'ancien oratoire de la rue de Charonne. Pasteur H. Boussard ; culte le dimanche à 10 h 30, écoles du dimanche et du jeudi, louveteaux, éclaireurs, orphelinat et maison des apprentis.", "images": [{"src": "media/activites_0.jpg", "w": 658, "h": 421}, {"src": "media/activites_1.jpg", "w": 662, "h": 435}]}, {"date": "Milieu du XXe siècle", "title": "« Protestants ou amis désirant connaître notre Église »", "text": "Bulletin d'accueil : cultes le dimanche à 10 h 30, activités, école du dimanche et du jeudi, groupes de jeunesse. Coupon à renvoyer pour recevoir le bulletin paroissial (métro Faidherbe-Chaligny).", "images": [{"src": "media/adherent_0.jpg", "w": 952, "h": 1500}]}, {"date": "Milieu du XXe siècle", "title": "Bulletin « L'offrande du chrétien »", "text": "Engagement nominatif à verser une offrande régulière, par enveloppe hebdomadaire, pour l'œuvre de l'Église. Ici, un paroissien de la rue Titon s'engage pour 5 F par semaine et 10 F par mois.", "images": [{"src": "media/offrande_0.jpg", "w": 1500, "h": 909}]}, {"date": "2 juillet 1964", "title": "Statuts de l'Union chrétienne de Bon-Secours", "text": "Association fondée pour l'éducation des jeunes : un centre chrétien ouvert à tous, sans distinction, avec un club de jeunes gens et de jeunes filles. Siège au 20 rue Titon.", "images": [{"src": "media/statuts_0.jpg", "w": 1040, "h": 1332}, {"src": "media/statuts_1.jpg", "w": 1040, "h": 1345}]}, {"date": "Années 1960 – 1970", "title": "Dépliant de l'Église luthérienne de la Villette", "text": "Paroisse sœur du 19e arrondissement (pasteurs A. Ely et E. Meyer) : « Le but de ce dépliant ? Faire connaître notre paroisse aux protestants qui l'ignorent encore. » Plan d'accès et activités.", "images": [{"src": "media/villette_0.jpg", "w": 663, "h": 416}, {"src": "media/villette_1.jpg", "w": 668, "h": 415}]}, {"date": "Années 1970", "title": "« Notre Église : son organisation »", "text": "Organigramme de l'Église évangélique luthérienne de France à Paris : synode, inspection, consistoires et paroisses. Bon-Secours (20 rue Titon, pasteur R. Sabourin) relève du Consistoire Centre-Est.", "images": [{"src": "media/orga_0.jpg", "w": 1500, "h": 905}]}]}, {"n": "VII", "title": "La restauration de l'église", "short": "La restauration de 1996", "period": "1996", "sub": "Réfection de la toiture et du clocher, fêtes et célébrations autour du chantier", "items": [{"date": "1996", "title": "Le clocher sous échafaudage", "text": "Vue depuis le faîtage de la nef, déjà recouvert de zinc neuf : le clocher est entièrement échafaudé et sa flèche, mise à nu, laisse voir son lattis de bois neuf.", "images": [{"src": "media/r_clocher_0.jpg", "w": 887, "h": 1500}]}, {"date": "1996", "title": "Les couvreurs-zingueurs au travail", "text": "Pose des bandes de zinc à joints debout sur le voligeage en bois de la toiture, au milieu des cheminées et des immeubles du quartier.", "images": [{"src": "media/r_zingueur_0.jpg", "w": 1500, "h": 988}]}, {"date": "1996", "title": "La nouvelle couverture en zinc", "text": "Les bandes de zinc s'alignent sur le voligeage neuf. En haut, la partie déjà achevée et, sous bâche, la zone encore en travaux.", "images": [{"src": "media/r_zinc_0.jpg", "w": 1500, "h": 998}]}, {"date": "1996", "title": "Visite du chantier sur les toits", "text": "Au pied de l'échafaudage du clocher, visite de la toiture en cours de réfection, pendant que les couvreurs continuent la pose.", "images": [{"src": "media/r_visite_0.jpg", "w": 1500, "h": 934}]}, {"date": "1996", "title": "Barbecue dans la cour", "text": "Une brouette de chantier transformée en barbecue : la cour de l'église accueille une fête pour les artisans de la restauration.", "images": [{"src": "media/r_bbq_0.jpg", "w": 989, "h": 1500}]}, {"date": "1996", "title": "Fête de chantier", "text": "Paroissiens et ouvriers réunis autour du buffet, sous le préau de la cour, dans la fumée du barbecue.", "images": [{"src": "media/r_buffet_0.jpg", "w": 1500, "h": 1027}]}, {"date": "1996", "title": "Repas dans la cour", "text": "Grande tablée dans la cour de l'église : un moment de convivialité pour remercier tous ceux qui ont travaillé au chantier.", "images": [{"src": "media/r_repas_0.jpg", "w": 1500, "h": 921}]}, {"date": "1996", "title": "Un verre entre amis", "text": "Paroissiens réunis pour trinquer sous l'arche de la cour, entre l'église et les bâtiments paroissiaux.", "images": [{"src": "media/r_verre_0.jpg", "w": 1500, "h": 993}]}, {"date": "Vers 1996", "title": "À table dans la salle paroissiale", "text": "Paroissiens attablés dans la salle paroissiale, avec sa cuisinière et ses anciennes portes vitrées.", "images": [{"src": "media/r_salle_0.jpg", "w": 1500, "h": 998}]}, {"date": "Vers 1996", "title": "Concert dans l'église", "text": "Une chorale en aubes blanches et vertes chante devant l'autel. Vue depuis la tribune, la nef est pleine.", "images": [{"src": "media/r_concert_0.jpg", "w": 1008, "h": 1500}]}, {"date": "Vers 1996", "title": "Une célébration œcuménique", "text": "Pasteurs en robe noire et prêtres en aube réunis au premier rang pour une célébration commune dans l'église.", "images": [{"src": "media/r_oecum_0.jpg", "w": 1500, "h": 978}]}, {"date": "Vers 1996", "title": "Photo de groupe dans le chœur", "text": "Paroissiens et membres d'une communauté coréenne réunis devant l'autel et sa boiserie, après un culte.", "images": [{"src": "media/r_groupe_0.jpg", "w": 1500, "h": 990}]}]}, {"n": "VIII", "title": "Noël 1999", "short": "Noël 1999", "period": "Décembre 1999", "sub": "La fête de Noël des enfants à Bon-Secours", "items": [{"date": "Noël 1999", "title": "La chorale des enfants", "text": "Foulard rouge au cou, les enfants chantent « Arbre de Noël » devant le sapin décoré.", "images": [{"src": "media/n_chorale_0.jpg", "w": 1500, "h": 1000}]}, {"date": "Noël 1999", "title": "L'ange et Marie", "text": "Spectacle de Noël : l'ange annonce à Marie la naissance de Jésus, devant un grand décor peint de Bethléem sous le ciel étoilé.", "images": [{"src": "media/n_annonc_0.jpg", "w": 1500, "h": 1000}]}, {"date": "Noël 1999", "title": "L'ange et les bergers", "text": "Les enfants costumés en bergers écoutent l'ange leur annoncer la bonne nouvelle, sous l'étoile qui brille sur Bethléem.", "images": [{"src": "media/n_bergers_0.jpg", "w": 1500, "h": 1000}]}, {"date": "Noël 1999", "title": "Le culte de Noël", "text": "Les fidèles debout dans le chœur pendant le culte, dans la lumière tamisée de l'église.", "images": [{"src": "media/n_culte_0.jpg", "w": 1500, "h": 1003}]}, {"date": "Noël 1999", "title": "Le goûter de Noël", "text": "Repas partagé dans la salle paroissiale, ornée de dessins d'enfants : petits et grands se retrouvent après la fête.", "images": [{"src": "media/n_gouter_0.jpg", "w": 1500, "h": 1008}]}]}];
+const VIDEOS = {
+  verriere:{src:"media/verriere.mp4",poster:"media/verriere.jpg",dur:41},
+  dumas80:{src:"media/dumas80.mp4",poster:"media/dumas80.jpg",dur:190}
+};
+const SLIDE_MS = 10000;
+
+// flatten
+const FLAT = [];
+DATA.forEach((ch,ci)=>ch.items.forEach((it,ii)=>FLAT.push({ci,ii,ch,it})));
+let cur = 0, playing = false, timer = null, lbPages = [], lbIdx = 0;
+
+const $ = id => document.getElementById(id);
+const nav = document.querySelector("nav.chapters");
+
+DATA.forEach((ch,ci)=>{
+  const b=document.createElement("button");
+  b.setAttribute("role","tab");
+  b.innerHTML=`<b>${ch.n}</b>${ch.short}`;
+  b.title=`${ch.title} — ${ch.period}`;
+  b.onclick=()=>{ go(FLAT.findIndex(f=>f.ci===ci)); };
+  nav.appendChild(b);
+});
+
+function thumbOf(it){ return it.video ? VIDEOS[it.video].poster : it.images[0].src; }
+
+function renderStrip(ci){
+  const strip=$("strip"); strip.innerHTML="";
+  FLAT.forEach((f,i)=>{ if(f.ci!==ci) return;
+    const b=document.createElement("button");
+    b.setAttribute("aria-label",`${f.it.date} — ${f.it.title}`);
+    b.innerHTML=`<img loading="lazy" src="${thumbOf(f.it)}" alt="">`+(f.it.video?`<span class="vid"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>`:"");
+    b.onclick=()=>go(i);
+    b.dataset.i=i; strip.appendChild(b);
+  });
+  strip.dataset.ci=ci;
+}
+
+function layoutPages(imgs){
+  // choose row vs column like the slideshow
+  const ars=imgs.map(i=>i.w/i.h), sum=ars.reduce((a,b)=>a+b,0), inv=ars.reduce((a,r)=>a+1/r,0);
+  const el=$("media"), W=el.clientWidth||900, H=el.clientHeight||600, g=14;
+  const hRow=Math.min(H,(W-g*(imgs.length-1))/sum), aRow=ars.reduce((a,r)=>a+r*hRow*hRow,0);
+  const wCol=Math.min(W,(H-g*(imgs.length-1))/inv), aCol=ars.reduce((a,r)=>a+wCol*wCol/r,0);
+  return (imgs.length>1 && aCol>aRow*1.15) ? {col:true,size:wCol,ars} : {col:false,size:hRow,ars};
+}
+
+function render(){
+  const f=FLAT[cur], {ch,it}=f;
+  // tabs
+  [...nav.children].forEach((b,i)=>b.setAttribute("aria-selected", i===f.ci));
+  nav.children[f.ci].scrollIntoView({block:"nearest",inline:"nearest"});
+  if($("strip").dataset.ci!=f.ci) renderStrip(f.ci);
+  [...$("strip").children].forEach(b=>{ const on=+b.dataset.i===cur; b.setAttribute("aria-current",on); if(on) b.scrollIntoView({block:"nearest",inline:"center"}); });
+
+  $("chap").textContent=`${ch.n} · ${ch.short}`;
+  $("chapintro").textContent= f.ii===0 ? `${ch.period} — ${ch.sub}` : "";
+  $("date").textContent=it.date;
+  $("title").textContent=it.title;
+  $("text").textContent=it.text;
+  $("count").textContent=`${cur+1} / ${FLAT.length}`;
+
+  const m=$("media"); m.innerHTML="";
+  if(it.video){
+    const v=VIDEOS[it.video];
+    m.innerHTML=`<video id="vid" controls playsinline preload="metadata" poster="${v.poster}" src="${v.src}"></video>`;
+    $("kind").textContent=`▶ Vidéo · ${Math.floor(v.dur/60)} min ${String(v.dur%60).padStart(2,"0")} s`;
+    const vid=$("vid");
+    vid.addEventListener("ended",()=>{ if(playing) next(); });
+    if(playing){ vid.play().catch(()=>{}); }
+  } else {
+    const n=it.images.length;
+    $("kind").textContent = n>1 ? `${n} pages · ${window.innerWidth>860?"cliquer pour agrandir":"faire glisser, toucher pour agrandir"}` : (window.innerWidth>860?"Cliquer pour agrandir":"Toucher pour agrandir");
+    const box=document.createElement("div"); box.className="pages"+(n===1?" single":"");
+    const L=layoutPages(it.images);
+    if(L.col) box.classList.add("col");
+    it.images.forEach((im,k)=>{
+      const img=new Image(); img.src=im.src; img.alt=`${it.title} — page ${k+1}`; img.decoding="async";
+      if(window.innerWidth>860){
+        if(L.col){ img.style.width=Math.floor(L.size)+"px"; img.style.height="auto"; }
+        else { img.style.height=Math.floor(L.size)+"px"; img.style.width="auto"; }
+      }
+      img.onclick=()=>openLB(it,k);
+      box.appendChild(img);
+    });
+    m.appendChild(box);
+  }
+  history.replaceState(null,"","#"+(cur+1));
+  schedule();
+  preload(cur+1);
+}
+
+function preload(i){ const f=FLAT[i]; if(f&&f.it.images) f.it.images.forEach(im=>{const p=new Image();p.src=im.src;}); }
+
+function go(i){ cur=(i+FLAT.length)%FLAT.length; render(); }
+function next(){ go(cur+1); }
+function prev(){ go(cur-1); }
+
+function schedule(){
+  clearTimeout(timer);
+  if(!playing) return;
+  if(FLAT[cur].it.video) return; // advances on "ended"
+  timer=setTimeout(next,SLIDE_MS);
+}
+function setPlay(on){
+  playing=on; $("play").setAttribute("aria-pressed",on);
+  $("play").querySelector("span").textContent=on?"Pause":"Diaporama";
+  $("playicon").innerHTML=on?'<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>':'<path d="M8 5v14l11-7z"/>';
+  const v=$("vid"); if(v){ on?v.play().catch(()=>{}):v.pause(); }
+  schedule();
+}
+
+// lightbox
+function openLB(it,k){ lbPages=it.images; lbIdx=k; $("lb").classList.add("open"); showLB(); if(playing) setPlay(false); $("lbclose").focus(); }
+function showLB(){ $("lbimg").src=lbPages[lbIdx].src; $("lbcap").textContent=lbPages.length>1?`Page ${lbIdx+1} / ${lbPages.length}`:"";
+  $("lbprev").style.visibility=$("lbnext").style.visibility=lbPages.length>1?"visible":"hidden"; $("lbwrap").scrollTop=0; }
+function closeLB(){ $("lb").classList.remove("open"); }
+$("lbclose").onclick=closeLB; $("lbimg").onclick=closeLB;
+$("lbprev").onclick=()=>{lbIdx=(lbIdx-1+lbPages.length)%lbPages.length;showLB();};
+$("lbnext").onclick=()=>{lbIdx=(lbIdx+1)%lbPages.length;showLB();};
+
+$("prev").onclick=prev; $("next").onclick=next; $("play").onclick=()=>setPlay(!playing);
+document.addEventListener("keydown",e=>{
+  if($("lb").classList.contains("open")){ if(e.key==="Escape")closeLB(); if(e.key==="ArrowRight")$("lbnext").click(); if(e.key==="ArrowLeft")$("lbprev").click(); return; }
+  if(e.target.tagName==="VIDEO") return;
+  if(e.key==="ArrowRight")next(); if(e.key==="ArrowLeft")prev();
+});
+let rt; window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{ if(!FLAT[cur].it.video) render(); },200);});
+
+const h=parseInt(location.hash.slice(1)); go(h>0&&h<=FLAT.length?h-1:0);
+</script>
+</body>
+</html>
